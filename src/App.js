@@ -1,6 +1,5 @@
 // Import dependencies
-import React, { useRef, useState, useEffect } from "react";
-import * as tf from "@tensorflow/tfjs";
+import React, { useRef, useEffect } from "react";
 import * as cocossd from "@tensorflow-models/coco-ssd";
 import Webcam from "react-webcam";
 import "./App.css";
@@ -31,19 +30,12 @@ function App() {
       const video = webcamRef.current.video;
       const videoWidth = webcamRef.current.video.videoWidth;
       const videoHeight = webcamRef.current.video.videoHeight;
-
- 
       webcamRef.current.video.width = videoWidth;
       webcamRef.current.video.height = videoHeight;
-
-     
       canvasRef.current.width = videoWidth;
       canvasRef.current.height = videoHeight;
 
-    
       const obj = await net.detect(video);
-
-     
       const ctx = canvasRef.current.getContext("2d");
       drawRect(obj, ctx); 
     }
@@ -69,7 +61,6 @@ function App() {
             height: 480,
           }}
         />
-
         <canvas
           ref={canvasRef}
           style={{
